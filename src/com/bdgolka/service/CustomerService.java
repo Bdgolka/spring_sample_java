@@ -4,8 +4,7 @@ import java.util.List;
 
 import com.bdgolka.model.Customer;
 
-public interface CustomerSetvice {
-
-	List<Customer> findAll();
+public interface CustomerService {
+	public List<Customer>  findAll();
 
 }
