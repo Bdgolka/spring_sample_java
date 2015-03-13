@@ -4,20 +4,27 @@ import java.util.List;
 
 import com.bdgolka.model.Customer;
 import com.bdgolka.repository.CustomerRepository;
-import com.bdgolka.repository.HibernateCustomerRepositoryImpl;
 
 public class CustomerServiceImpl implements CustomerService {
 
-	private CustomerRepository customerReposoitory;  
-	
+	private CustomerRepository customerReposoitory;
+
+	public CustomerServiceImpl() {
+
+	}
+
+	public CustomerServiceImpl(CustomerRepository customerRepository) {
+		
+		System.out.println("Here is constructor injection");
+		this.customerReposoitory = customerRepository;
+
+	}
+
 	public void setCustomerReposoitory(CustomerRepository customerReposoitory) {
 		this.customerReposoitory = customerReposoitory;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.bdgolka.service.CustomerSetvice#findAll()
-	 */
-	public List<Customer> findAll()	{
+	public List<Customer> findAll() {
 		return customerReposoitory.findAll();
 	}
 }
